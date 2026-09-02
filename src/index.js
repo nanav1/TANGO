@@ -42,6 +42,10 @@ client.on(Events.InteractionCreate, async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 //문제출제
   if (interaction.commandName === 'n1') {
+    if (curmondai.has(interaction.channelId)){
+      await interaction.reply('이미 진행 중인 문제가 있음');
+      return;
+    }
     const mondai = n1[Math.floor(Math.random() * n1.length)];
 
     curmondai.set(interaction.channelId, mondai);
@@ -49,6 +53,10 @@ client.on(Events.InteractionCreate, async (interaction) => {
     await interaction.reply(`문제 : ${mondai.expression}`)
   }
     if (interaction.commandName === 'n2') {
+      if (curmondai.has(interaction.channelId)){
+        await interaction.reply('이미 진행 중인 문제가 있음');
+        return;
+      }
     const mondai = n2[Math.floor(Math.random() * n2.length)];
 
     curmondai.set(interaction.channelId, mondai);
@@ -56,6 +64,10 @@ client.on(Events.InteractionCreate, async (interaction) => {
     await interaction.reply(`문제 : ${mondai.expression}`)
   }
     if (interaction.commandName === 'n3') {
+      if (curmondai.has(interaction.channelId)){
+        await interaction.reply('이미 진행 중인 문제가 있음');
+        return;
+      }
     const mondai = n3[Math.floor(Math.random() * n3.length)];
 
     curmondai.set(interaction.channelId, mondai);
@@ -80,6 +92,16 @@ client.on(Events.InteractionCreate, async (interaction) => {
     } else {
       await interaction.reply('오답입니다.');
     }
+  }
+  if (interaction.commandName === 'giveup'){
+    const curmon = curmondai.get(interaction.channelId);
+
+    if (!curmon){
+      await interaction.reply('출제된 문제가 없습니다');
+      return;
+    }
+
+    await interaction.reply(`정답 **${curmon.expression}**`+`(${curmon.reading}) - ${curmon.meaning} `);
   }
   //힌트
   if (interaction.commandName === 'h'){

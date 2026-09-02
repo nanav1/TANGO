@@ -24,6 +24,10 @@ const commands = [
   new SlashCommandBuilder()
   .setName('h')
   .setDescription('힌트 - 뜻 확인'),
+  
+  new SlashCommandBuilder()
+  .setName('giveup')
+  .setDescription('정답확인'),
 
   new SlashCommandBuilder()
     .setName('a')
