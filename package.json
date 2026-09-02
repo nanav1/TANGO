@@ -1,0 +1,16 @@
+{
+  "name": "jlpt-discord-bot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Discord-based JLPT quiz bot",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "register": "node src/register-commands.js"
+  },
+  "dependencies": {
+    "csv-parse": "^7.0.2",
+    "discord.js": "^14.22.1",
+    "dotenv": "^17.2.2"
+  }
+}
