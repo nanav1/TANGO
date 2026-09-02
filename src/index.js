@@ -86,9 +86,9 @@ client.on(Events.InteractionCreate, async (interaction) => {
     const userAnswer = interaction.options.getString('정답');
 
     if (userAnswer.trim() === curmon.reading.trim()){
-      await interaction.reply(`${interaction.user}님 정답! **${curmon.expression}**`+`(${curmon.reading}) - ${curmon.meaning}`);
 
       curmondai.delete(interaction.channelId);
+      await interaction.reply(`${interaction.user}님 정답! **${curmon.expression}**`+`(${curmon.reading}) - ${curmon.meaning}`);
     } else {
       await interaction.reply('오답입니다.');
     }
@@ -100,6 +100,8 @@ client.on(Events.InteractionCreate, async (interaction) => {
       await interaction.reply('출제된 문제가 없습니다');
       return;
     }
+
+    curmondai.delete(interaction.channelId);
 
     await interaction.reply(`정답 **${curmon.expression}**`+`(${curmon.reading}) - ${curmon.meaning} `);
   }
