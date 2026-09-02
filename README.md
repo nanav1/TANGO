@@ -37,4 +37,5 @@ jlpt-discord-bot/
 
 ## 단어 출처
 단어     - https://github.com/jamsinclair/open-anki-jlpt-decks
+
 한국어 뜻 - https://kaikki.org/kowiktionary/%EC%9D%BC%EB%B3%B8%EC%96%B4
