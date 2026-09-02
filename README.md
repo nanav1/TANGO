@@ -14,6 +14,7 @@
 /n3 n3~n5 단어
 /a  정답
 /h  힌트 - 뜻이 나옴
+/giveup 정답공개
 
 ## 실행방법
 npm install - env 값 입력 - npm run register - npm start
